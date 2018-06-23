@@ -19,13 +19,8 @@ public class BerlinClock implements TimeConverter {
 		int hour =  date[0];
 		HourClock hrClock = new HourClock();
 		Clock clock = hrClock.hoursClock(hour);
-		System.out.println(clock.getScenario());
-		System.out.println(clock.getRowOne());
-		System.out.println(clock.getRowTwo());
 		MinutesClock minClock = new MinutesClock();
 		Clock min = minClock.minClock(date[1]); 
-		System.out.println(min.getRowOne());
-		System.out.println(min.getRowTwo());
 		return clock.getScenario()+"\r"+"\n"+clock.getRowOne()+"\r"+"\n"+clock.getRowTwo()+"\r"+"\n"+min.getRowOne()+"\r"+"\n"+min.getRowTwo();
 	}
 	
