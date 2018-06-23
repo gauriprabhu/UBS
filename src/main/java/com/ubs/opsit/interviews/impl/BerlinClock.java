@@ -22,8 +22,7 @@ public class BerlinClock implements TimeConverter {
 		MinutesClock minClock = new MinutesClock();
 		Clock min = minClock.minClock(date[1]); 
 		return clock.getScenario()+"\r"+"\n"+clock.getRowOne()+"\r"+"\n"+clock.getRowTwo()+"\r"+"\n"+min.getRowOne()+"\r"+"\n"+min.getRowTwo();
-	}
-	
+	}	
 	//format date in terms of HH:mm:ss
 	/*private Date formatTime(String time){
 	
