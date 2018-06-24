@@ -1,11 +1,16 @@
 package com.ubs.opsit.interviews.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.ubs.opsit.interviews.constant.ClockConstants;
 import com.ubs.opsit.interviews.enumeration.Colors;
 import com.ubs.opsit.interviews.util.Clock;
 
 public class HourClock{
 
+	private static final Logger LOG = LoggerFactory.getLogger(HourClock.class);
+	
 	public Clock hoursClock(int hour){
 		Clock clock = new Clock();
 		clock.setScenario(dayScenario(hour));
@@ -31,10 +36,13 @@ public class HourClock{
 		}
 		clock.setRowOne(rowOne.toString());
 		clock.setRowTwo(rowTwo.toString());
+		LOG.debug("Hours clock Row #1 : "+ rowOne);
+		LOG.debug("Hours clock Row #2 : "+ rowTwo);
 		return clock;
 	}
 	
 	private String dayScenario(int hour){
+		LOG.info("Calcuation of SCENARIOS");
 		String scenario = null;
 		if((hour >= ClockConstants.EARLYMORNING && hour < ClockConstants.AFTERNOON ) || hour == ClockConstants.MIDNIGHT){
 			scenario = Colors.Y.toString();
@@ -42,6 +50,7 @@ public class HourClock{
 		else if(hour >= ClockConstants.AFTERNOON && hour < ClockConstants.MIDNIGHT){
 			scenario = Colors.O.toString();
 		}
+		LOG.debug("SCENARIO : " + scenario);
 		return scenario;
 	}
 }

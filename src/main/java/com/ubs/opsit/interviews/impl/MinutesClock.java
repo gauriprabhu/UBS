@@ -1,11 +1,16 @@
 package com.ubs.opsit.interviews.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.ubs.opsit.interviews.constant.ClockConstants;
 import com.ubs.opsit.interviews.enumeration.Colors;
 import com.ubs.opsit.interviews.util.Clock;
 
 public class MinutesClock{
 
+	private static final Logger LOG = LoggerFactory.getLogger(MinutesClock.class);
+	
 	public Clock minClock(int min){
 		Clock clock = new Clock();
 		StringBuilder rowOne = new StringBuilder();
@@ -35,6 +40,8 @@ public class MinutesClock{
 		}
 		clock.setRowOne(rowOne.toString());
 		clock.setRowTwo(rowTwo.toString());
+		LOG.debug("Minutes clock Row #1 : "+ rowOne);
+		LOG.debug("Minutes clock Row #2 : "+ rowTwo);
 		return clock;
 	}
 	
